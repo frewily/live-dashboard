@@ -8,14 +8,14 @@
 
 本项目基于 [Monika-Dream/live-dashboard](https://github.com/Monika-Dream/live-dashboard) 进行重构实现。
 
-原项目采用 **Bun + React + Next.js** 技术栈，本项目将其重构为 **Vue 3 + Spring Boot** 实现，保留了核心的访客追踪功能和二次元风格 UI。
+原项目采用 **Bun + React + Next.js** 技术栈，本项目利用ai将其重构为 **Vue 3 + Spring Boot** 实现以便于学习，保留了核心的访客追踪功能和二次元风格 UI。
 
 感谢原作者的创意和开源贡献！
 
 ## 功能特性
 
 - 🎀 猫耳装饰的视觉小说风格对话框
-- 👀 实时访客追踪 - 显示"N 人在看喵~"
+- 👀 实时访客追踪 - 显示"N 人在看喵\~"
 - 💻 真实设备状态监控 (Windows Agent)
 - 🤖 机器人/爬虫过滤
 - ⏱️ 60 秒超时自动清理离线设备
@@ -27,9 +27,9 @@
 
 这个项目做两件事：
 
-| 功能 | 说明 |
-|------|------|
-| **访客追踪** | 记录有多少人在看页面 |
+| 功能       | 说明            |
+| -------- | ------------- |
+| **访客追踪** | 记录有多少人在看页面    |
 | **设备监控** | 显示你的电脑正在用什么软件 |
 
 ### 三层架构
@@ -140,12 +140,12 @@ while True:
 
 ### 定时任务汇总
 
-| 任务 | 间隔 | 说明 |
-|------|------|------|
-| Agent 检查窗口 | 5 秒 | 检测窗口变化 |
-| 前端轮询 | 10 秒 | 获取最新数据 |
-| 后端清理访客 | 30 秒 | 删除超时的访客记录 |
-| 后端清理设备 | 30 秒 | 删除离线的设备 |
+| 任务         | 间隔   | 说明        |
+| ---------- | ---- | --------- |
+| Agent 检查窗口 | 5 秒  | 检测窗口变化    |
+| 前端轮询       | 10 秒 | 获取最新数据    |
+| 后端清理访客     | 30 秒 | 删除超时的访客记录 |
+| 后端清理设备     | 30 秒 | 删除离线的设备   |
 
 ### 为什么用 ConcurrentHashMap？
 
@@ -194,12 +194,12 @@ live-dashboard/
 
 ### 环境要求
 
-| 工具 | 版本 |
-|------|------|
-| Java | 17+ |
-| Node.js | 18+ |
-| Python | 3.8+ |
-| Maven | 3.8+ |
+| 工具      | 版本   |
+| ------- | ---- |
+| Java    | 17+  |
+| Node.js | 18+  |
+| Python  | 3.8+ |
+| Maven   | 3.8+ |
 
 ### 🚀 一键启动 (Windows)
 
@@ -210,7 +210,7 @@ start.bat    # 启动后端、前端、Agent
 stop.bat     # 停止所有服务
 ```
 
-启动后会自动打开浏览器访问 http://localhost:5173
+启动后会自动打开浏览器访问 <http://localhost:5173>
 
 ### 手动启动
 
@@ -221,7 +221,7 @@ cd backend
 mvn spring-boot:run
 ```
 
-后端将在 http://localhost:8080 启动
+后端将在 <http://localhost:8080> 启动
 
 ### 2. 启动前端
 
@@ -231,7 +231,7 @@ npm install
 npm run dev
 ```
 
-前端将在 http://localhost:5173 启动
+前端将在 <http://localhost:5173> 启动
 
 ### 3. 启动 Agent (Windows)
 
@@ -244,7 +244,7 @@ python agent.py
 
 ### 4. 查看效果
 
-1. 打开浏览器访问 http://localhost:5173
+1. 打开浏览器访问 <http://localhost:5173>
 2. 观察显示的当前活动应用
 3. 切换窗口，等待 5 秒后页面会更新
 
@@ -274,12 +274,12 @@ python agent.py -s http://localhost:8080 -i 5 -n "My PC"
 
 ### 命令行参数
 
-| 参数 | 简写 | 默认值 | 说明 |
-|------|------|--------|------|
-| `--server` | `-s` | `http://localhost:8080` | 后端服务器地址 |
-| `--interval` | `-i` | `5` | 上报间隔 (秒) |
-| `--device-id` | `-d` | 自动生成 | 设备唯一 ID |
-| `--device-name` | `-n` | 计算机名 | 设备显示名称 |
+| 参数              | 简写   | 默认值                     | 说明       |
+| --------------- | ---- | ----------------------- | -------- |
+| `--server`      | `-s` | `http://localhost:8080` | 后端服务器地址  |
+| `--interval`    | `-i` | `5`                     | 上报间隔 (秒) |
+| `--device-id`   | `-d` | 自动生成                    | 设备唯一 ID  |
+| `--device-name` | `-n` | 计算机名                    | 设备显示名称   |
 
 ## API 接口
 
@@ -313,11 +313,11 @@ Agent 上报活动数据。
 
 **请求头：**
 
-| Header | 说明 |
-|--------|------|
-| `X-Device-Id` | 设备唯一 ID |
-| `X-Device-Name` | 设备显示名称 |
-| `X-Platform` | 平台 (windows/macOS/android) |
+| Header          | 说明                         |
+| --------------- | -------------------------- |
+| `X-Device-Id`   | 设备唯一 ID                    |
+| `X-Device-Name` | 设备显示名称                     |
+| `X-Platform`    | 平台 (windows/macOS/android) |
 
 **请求体：**
 
@@ -397,25 +397,25 @@ def report_activity(app_name, window_title):
 
 ## 技术栈对比
 
-| 维度 | 原版 (Bun + React) | 本版 (Spring Boot + Vue) |
-|------|-------------------|-------------------------|
-| 后端 | Bun + TypeScript | Java 17 + Spring Boot 3 |
-| 前端 | React 19 + Next.js 15 | Vue 3.4 + Vite 5 |
-| Agent | Python + requests | Python 内置库 (零依赖) |
-| 数据库 | SQLite | 内存存储 |
-| 启动速度 | ~10ms | ~2s |
-| 内存占用 | ~20MB | ~200MB |
+| 维度    | 原版 (Bun + React)      | 本版 (Spring Boot + Vue)  |
+| ----- | --------------------- | ----------------------- |
+| 后端    | Bun + TypeScript      | Java 17 + Spring Boot 3 |
+| 前端    | React 19 + Next.js 15 | Vue 3.4 + Vite 5        |
+| Agent | Python + requests     | Python 内置库 (零依赖)        |
+| 数据库   | SQLite                | 内存存储                    |
+| 启动速度  | \~10ms                | \~2s                    |
+| 内存占用  | \~20MB                | \~200MB                 |
 
 ## 功能对比
 
-| 功能 | 原版 | 本版 |
-|------|------|------|
-| 访客追踪 | ✅ | ✅ |
-| 设备状态 | ✅ | ✅ |
-| 时间线 | ✅ | ❌ |
-| 健康数据 | ✅ | ❌ |
-| 隐私分级 | ✅ | ❌ |
-| 多设备 | ✅ | ✅ |
+| 功能   | 原版 | 本版 |
+| ---- | -- | -- |
+| 访客追踪 | ✅  | ✅  |
+| 设备状态 | ✅  | ✅  |
+| 时间线  | ✅  | ❌  |
+| 健康数据 | ✅  | ❌  |
+| 隐私分级 | ✅  | ❌  |
+| 多设备  | ✅  | ✅  |
 
 ## 扩展计划
 
@@ -438,5 +438,6 @@ MIT
 
 ## 原项目链接
 
-- 原项目地址: https://github.com/Monika-Dream/live-dashboard
+- 原项目地址: <https://github.com/Monika-Dream/live-dashboard>
 - 原作者: Monika-Dream
+
